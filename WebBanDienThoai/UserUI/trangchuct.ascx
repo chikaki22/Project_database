@@ -3,11 +3,11 @@
             <section class="promotion-section bg-red-600">  
     <h2>KHUYẾN MÃI HOT</h2>  
     <div class="product-grid">  
-        <% for(int i = 0; i < listSP.Count; i++) { %>  
+        <% for(int i = 0; i < listSPHot.Count; i++) { %>  
             <div class="product-item">  
-                <img alt="<%= listSP[i].TEN_SANPHAM %>" src="<%= "img/products/" + listSP[i].ANH %>" width="200" height="300" />  
-                <h3><%= listSP[i].TEN_SANPHAM %></h3>  
-                <p class="price"><%= listSP[i].GIA %></p>  
+                <img alt="<%= listSPHot[i].TEN_SANPHAM %>" src="<%= listSPHot[i].ANH %>" width="200" height="300" />  
+                <h3><%= listSPHot[i].TEN_SANPHAM %></h3>  
+                <p class="price"><%= listSPHot[i].GIA %></p>  
             </div>  
         <% } %>  
     </div>  

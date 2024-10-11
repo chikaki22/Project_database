@@ -428,7 +428,7 @@ namespace WebBanDienThoai
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_GIAOHANG", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI_GIAOHANG", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary DIACHI_GIAOHANG
 		{
 			get
@@ -543,7 +543,7 @@ namespace WebBanDienThoai
 		
 		private string _LISANH;
 		
-		private System.Nullable<bool> _HOT;
+		private System.Nullable<int> _HOT;
 		
 		private System.Nullable<int> _ID_DANHMUC;
 		
@@ -573,7 +573,7 @@ namespace WebBanDienThoai
     partial void OnANHChanged();
     partial void OnLISANHChanging(string value);
     partial void OnLISANHChanged();
-    partial void OnHOTChanging(System.Nullable<bool> value);
+    partial void OnHOTChanging(System.Nullable<int> value);
     partial void OnHOTChanged();
     partial void OnID_DANHMUCChanging(System.Nullable<int> value);
     partial void OnID_DANHMUCChanged();
@@ -693,8 +693,8 @@ namespace WebBanDienThoai
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOT", DbType="Bit")]
-		public System.Nullable<bool> HOT
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOT", DbType="Int")]
+		public System.Nullable<int> HOT
 		{
 			get
 			{
