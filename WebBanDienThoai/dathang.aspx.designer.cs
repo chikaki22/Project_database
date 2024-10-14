@@ -10,15 +10,15 @@
 namespace WebBanDienThoai {
     
     
-    public partial class trangchu {
+    public partial class dathang {
         
         /// <summary>
-        /// trangchuct1 control.
+        /// dathangct1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebBanDienThoai.trangchuct trangchuct1;
+        protected global::WebBanDienThoai.dathangct dathangct1;
     }
 }

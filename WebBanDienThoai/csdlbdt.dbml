@@ -6,19 +6,15 @@
       <Column Name="TEN_DANHMUC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="HIENTHI" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="VITRI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Icon" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="DanhMuc1_SanPham" Member="SanPhams" ThisKey="ID_DANHMUC" OtherKey="ID_DANHMUC" Type="SanPham" />
     </Type>
   </Table>
-  <Table Name="dbo.DatHang" Member="DatHangs">
-    <Type Name="DatHang">
-      <Column Name="ID_DONHANG" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TONG_GIA_TRI" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SOLUONG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NGAY_TAO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DIACHI_GIAOHANG" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ID_SANPHAM" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="SanPham_DatHang" Member="SanPham" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="SanPham" IsForeignKey="true" />
+  <Table Name="dbo.MauSanPham" Member="MauSanPhams">
+    <Type Name="MauSanPham">
+      <Column Name="ID_MAUSP" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DUONGDANANH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ID_SANPHAM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
@@ -33,7 +29,8 @@
       <Column Name="ID_THUONGHIEU" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CAUHINH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="MOTASANPHAM" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="SanPham_DatHang" Member="DatHangs" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="DatHang" />
+      <Column Name="ChiTietSanPham" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="SanPham_DatHang1" Member="DatHang1s" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="DatHang1" />
       <Association Name="DanhMuc1_SanPham" Member="DanhMuc1" ThisKey="ID_DANHMUC" OtherKey="ID_DANHMUC" Type="DanhMuc1" IsForeignKey="true" />
       <Association Name="ThuongHieu_SanPham" Member="ThuongHieu" ThisKey="ID_THUONGHIEU" OtherKey="ID_THUONGHIEU" Type="ThuongHieu" IsForeignKey="true" />
     </Type>
@@ -51,6 +48,23 @@
       <Column Name="TIEUDE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="DUONGDAN_ANH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DatHang" Member="DatHang1s">
+    <Type Name="DatHang1">
+      <Column Name="ID_DONHANG" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TONG_GIA_TRI" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SOLUONG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NGAY_TAO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIACHI_GIAOHANG" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID_SANPHAM" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SoDT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MaHang" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="SanPham_DatHang1" Member="SanPham" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -58,19 +58,60 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="chitietdt.html" />
-    <Content Include="css\chitietsanpham.css" />
-    <Content Include="css\trangchu.css" />
-    <Content Include="trangchu.aspx" />
-    <Content Include="trangchu.html" />
-    <Content Include="UserUI\trangchuct.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="dathang.aspx" />
+    <Content Include="dathangct.ascx" />
+    <Content Include="home.aspx" />
+    <Content Include="chitietdienthoai.aspx" />
+    <Content Include="dtchitietct.ascx" />
+    <Content Include="chitietsanpham.css" />
+    <Content Include="chualamxong\SPDanhMuc.aspx" />
+    <Content Include="chualamxong\spdanhmucct.ascx" />
+    <Content Include="trangchu.css" />
+    <Content Include="trangchuct.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="csdlbdt.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>csdlbdt.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="dathang.aspx.cs">
+      <DependentUpon>dathang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dathang.aspx.designer.cs">
+      <DependentUpon>dathang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dathangct.ascx.cs">
+      <DependentUpon>dathangct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dathangct.ascx.designer.cs">
+      <DependentUpon>dathangct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chitietdienthoai.aspx.cs">
+      <DependentUpon>chitietdienthoai.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chitietdienthoai.aspx.designer.cs">
+      <DependentUpon>chitietdienthoai.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dtchitietct.ascx.cs">
+      <DependentUpon>dtchitietct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dtchitietct.ascx.designer.cs">
+      <DependentUpon>dtchitietct.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -80,28 +121,35 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="trangchu.aspx.cs">
-      <DependentUpon>trangchu.aspx</DependentUpon>
+    <Compile Include="chualamxong\SPDanhMuc.aspx.cs">
+      <DependentUpon>SPDanhMuc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="trangchu.aspx.designer.cs">
-      <DependentUpon>trangchu.aspx</DependentUpon>
+    <Compile Include="chualamxong\SPDanhMuc.aspx.designer.cs">
+      <DependentUpon>SPDanhMuc.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserUI\trangchuct.ascx.cs">
+    <Compile Include="chualamxong\spdanhmucct.ascx.cs">
+      <DependentUpon>spdanhmucct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chualamxong\spdanhmucct.ascx.designer.cs">
+      <DependentUpon>spdanhmucct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="trangchuct.ascx.cs">
       <DependentUpon>trangchuct.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserUI\trangchuct.ascx.designer.cs">
+    <Compile Include="trangchuct.ascx.designer.cs">
       <DependentUpon>trangchuct.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site1.Master" />
     <Content Include="csdlbdt.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>csdlbdt.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,12 +158,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="UserUI\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="csdlbdt.dbml.layout">
       <DependentUpon>csdlbdt.dbml</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
