@@ -19,10 +19,10 @@
         </div>
         <!-- Nội dung sản phẩm -->
         <div class="product-content">
-                <a class="purchase-buttons">
-                    <asp:Button ID="btnMuaNgay" runat="server" Text="Mua Ngay" OnClick="btnMuaNgay_Click" />
-                </a>          
             </div>
+                <a class="purchase-buttons">
+                    <asp:Button ID="btnMuaNgay" runat="server" Text="Mua Ngay" OnClick="btnMuaNgay_Click" style="margin-top: 0px" />
+                </a>          
         </div>
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -31,3 +31,5 @@
 
     <script src="js/product.js"></script>
 </div>
+<p>
+    &nbsp;</p>

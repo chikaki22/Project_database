@@ -36,16 +36,16 @@ namespace WebBanDienThoai
 
         protected void btnMuaNgay_Click(object sender, EventArgs e)
         {
-            DatHang1 ifdathang = new DatHang1();
+            DatHang ifdathang = new DatHang();
             ifdathang.MaHang = ifDienThoai.ID_SANPHAM;
-            ifdathang.SOLUONG = Convert.ToString(txtSoLuong.Text);
+            ifdathang.SOLUONG = Convert.ToInt32(txtSoLuong.Text);
             ifdathang.HoTen = txeHoTen.Text;
             ifdathang.SoDT = Convert.ToInt64(txtSDT.Text);
             ifdathang.DiaChi = txtDiaChi.Text;
             ifdathang.TinhTrang = 0;
 
 
-            db.DatHang1s.InsertOnSubmit(ifdathang);
+            db.DatHangs.InsertOnSubmit(ifdathang);
             db.SubmitChanges();
 
             lblTenDT.Text= "Đã đặt điện thoại " + ifDienThoai.TEN_SANPHAM + "thành công !";

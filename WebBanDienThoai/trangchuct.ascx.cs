@@ -23,6 +23,8 @@ namespace WebBanDienThoai
         public static List<SanPham> listVV = new List<SanPham>();
         csdlbdtDataContext f = new csdlbdtDataContext();
         public static List<SanPham> listXM = new List<SanPham>();
+        csdlbdtDataContext g = new csdlbdtDataContext();
+        public static List<SanPham> listSPM = new List<SanPham>();
  
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +35,7 @@ namespace WebBanDienThoai
             LoadDatasamsung();
             LoadDatavivo();
             LoadDataxiaomi();
+            LoadDataspm();
         }
 
         void LoadData()
@@ -109,6 +112,16 @@ namespace WebBanDienThoai
             if (data != null && data.Count() > 0)
             {
                 listXM = data.ToList();
+            }
+        }
+        void LoadDataspm()
+        {
+            var data = from q in a.SanPhams
+                       where q.SanPhamMoi == 1
+                       select q;
+            if (data != null && data.Count() > 0)
+            {
+                listSPM = data.ToList();
             }
         }
     }

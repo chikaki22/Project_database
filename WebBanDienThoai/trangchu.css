@@ -1,4 +1,7 @@
 ﻿/* CSS cho header */
+html {  
+    scroll-behavior: smooth ;  
+}
 body {
     background-color: #FFE1FF;
     font-family: Arial, sans-serif;
@@ -108,17 +111,21 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+    text-decoration : none;
+    
     /* Cho submenu */
 }
 
 .nav-item i {
     margin-right: 5px;
+    
 }
 
 .nav-item span {
     color: #7E60BF;
-    /* Màu chữ */
+    
 }
+
 /* ------------------------------------------------------------ */
 /* CSS  cho submenu */
 .submenu {

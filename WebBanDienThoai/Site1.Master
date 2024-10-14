@@ -46,6 +46,9 @@
                 </div>
             </div>
         </div>
+
+  
+
         <ul class="nav-bar">
 
             <% for(int i=0;i<listDM.Count;i++)
@@ -53,7 +56,7 @@
             <li class="nav-item">
                 <i class="fas fa-mobile-alt"></i>
                  <a href='<%="SPDanhMuc.aspx?IdDanhMuc=" + listDM[i].ID_DANHMUC.ToString() %>'>
-                <span><%=listDM[i].TEN_DANHMUC %></span>
+                <span> <a href="#<%=listDM[i].TEN_DANHMUC %>" > <%=listDM[i].TEN_DANHMUC %> </a></span> 
                  </a>
             </li>
             <% } %>
