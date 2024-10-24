@@ -19,18 +19,25 @@ namespace WebBanDienThoai
         }
         void LoadData()
         {
-            if (Request.QueryString["IdSanPham"] != "")
+            try
             {
-                long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]);
-                var data = from q in db.SanPhams
-                           where q.ID_SANPHAM == Iddienthoai
-                           select q;
-
-                if (data != null && data.Count() > 0)
+                if (Request.QueryString["IdSanPham"] != "")
                 {
-                    ifDienThoai = data.First();
-                    lblTenDT.Text ="Đặt Điện Thoại " + ifDienThoai.TEN_SANPHAM;
+                    long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]);
+                    var data = from q in db.SanPhams
+                               where q.ID_SANPHAM == Iddienthoai
+                               select q;
+
+                    if (data != null && data.Count() > 0)
+                    {
+                        ifDienThoai = data.First();
+                        lblTenDT.Text = "Đặt Điện Thoại " + ifDienThoai.TEN_SANPHAM;
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
 

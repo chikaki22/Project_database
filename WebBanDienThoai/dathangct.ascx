@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="dathangct.ascx.cs" Inherits="WebBanDienThoai.dathangct" %>
-<div class="bg-gray-100"><h2> <asp:Label ID="lblTenDT" runat="server"></asp:Label></h2>
+<div class="bg-gray-100">
     <!-- Thân trang -->
     <div class="container-content">
+        <h2> <asp:Label ID="lblTenDT" runat="server"></asp:Label></h2>
         <!-- Tên sản phẩm -->
         <h1 class="product-title">
         Thông Tin Thanh Toán

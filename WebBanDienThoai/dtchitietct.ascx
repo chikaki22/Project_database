@@ -45,7 +45,7 @@
                 </div>
                 <div class="purchase-buttons">
                 <button >
-                <a  href='<%="dathang.aspx?IdSanPham=" + ifDienThoai.ID_SANPHAM.ToString() %>'>
+                <a href='<%="dathang.aspx?IdSanPham=" + ifDienThoai.ID_SANPHAM.ToString() %>' style="text-decoration:none">
                     Mua Ngay
                 </a>
                 </button>

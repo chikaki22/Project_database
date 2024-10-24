@@ -26,5 +26,10 @@ namespace WebBanDienThoai
                 listDM = data.ToList();
             }
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("timkiemsp.aspx?giatri=" + txtTimKiem.Text);
+        }
     }
 }

@@ -3,3 +3,5 @@ D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\bin\WebBanDienThoai.dll
 D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\bin\WebBanDienThoai.pdb
 D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\obj\Debug\WebBanDienThoai.dll
 D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\obj\Debug\WebBanDienThoai.pdb
+D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\bin\FredCK.FCKeditorV2.dll
+D:\WBanDienThoai\WebBanDienThoai\WebBanDienThoai\obj\Debug\WebBanDienThoai.csprojResolveAssemblyReference.cache

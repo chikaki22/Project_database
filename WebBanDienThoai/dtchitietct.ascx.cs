@@ -14,22 +14,29 @@ namespace WebBanDienThoai
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            LoadData();
+            if (!IsPostBack)
+                LoadData();
         }
         void LoadData()
         {
-            if (Request.QueryString["IdSanPham"] != "")
+            try
             {
-                long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]);
-                var data = from q in db.SanPhams
-                           where q.ID_SANPHAM == Iddienthoai
-                           select q;
-
-                if (data != null && data.Count() > 0)
+                if (Request.QueryString["IdSanPham"] != "")
                 {
-                    ifDienThoai = data.First();
+                    long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]);
+                    var data = from q in db.SanPhams
+                               where q.ID_SANPHAM == Iddienthoai
+                               select q;
+
+                    if (data != null && data.Count() > 0)
+                    {
+                        ifDienThoai = data.First();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
     }

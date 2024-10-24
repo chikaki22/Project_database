@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FredCK.FCKeditorV2">
+      <HintPath>..\fckeditor\FredCK.FCKeditorV2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
@@ -58,15 +61,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="danhmucsp.aspx" />
+    <Content Include="danhmucspct.ascx" />
     <Content Include="dathang.aspx" />
     <Content Include="dathangct.ascx" />
+    <Content Include="error.html" />
     <Content Include="home.aspx" />
     <Content Include="chitietdienthoai.aspx" />
     <Content Include="dtchitietct.ascx" />
-    <Content Include="chitietsanpham.css" />
-    <Content Include="chualamxong\SPDanhMuc.aspx" />
-    <Content Include="chualamxong\spdanhmucct.ascx" />
-    <Content Include="trangchu.css" />
+    <Content Include="css\chitietsanpham.css" />
+    <Content Include="timkiemsp.aspx" />
+    <Content Include="timkiemspct.ascx" />
+    <Content Include="TrangAdmin.aspx" />
+    <Content Include="TrangCapNhatSP.aspx" />
+    <Content Include="css\trangchu.css" />
     <Content Include="trangchuct.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -77,6 +85,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>csdlbdt.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="danhmucsp.aspx.cs">
+      <DependentUpon>danhmucsp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="danhmucsp.aspx.designer.cs">
+      <DependentUpon>danhmucsp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="danhmucspct.ascx.cs">
+      <DependentUpon>danhmucspct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="danhmucspct.ascx.designer.cs">
+      <DependentUpon>danhmucspct.ascx</DependentUpon>
     </Compile>
     <Compile Include="dathang.aspx.cs">
       <DependentUpon>dathang.aspx</DependentUpon>
@@ -121,19 +143,33 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="chualamxong\SPDanhMuc.aspx.cs">
-      <DependentUpon>SPDanhMuc.aspx</DependentUpon>
+    <Compile Include="timkiemsp.aspx.cs">
+      <DependentUpon>timkiemsp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="chualamxong\SPDanhMuc.aspx.designer.cs">
-      <DependentUpon>SPDanhMuc.aspx</DependentUpon>
+    <Compile Include="timkiemsp.aspx.designer.cs">
+      <DependentUpon>timkiemsp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="chualamxong\spdanhmucct.ascx.cs">
-      <DependentUpon>spdanhmucct.ascx</DependentUpon>
+    <Compile Include="timkiemspct.ascx.cs">
+      <DependentUpon>timkiemspct.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="chualamxong\spdanhmucct.ascx.designer.cs">
-      <DependentUpon>spdanhmucct.ascx</DependentUpon>
+    <Compile Include="timkiemspct.ascx.designer.cs">
+      <DependentUpon>timkiemspct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TrangAdmin.aspx.cs">
+      <DependentUpon>TrangAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrangAdmin.aspx.designer.cs">
+      <DependentUpon>TrangAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TrangCapNhatSP.aspx.cs">
+      <DependentUpon>TrangCapNhatSP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TrangCapNhatSP.aspx.designer.cs">
+      <DependentUpon>TrangCapNhatSP.aspx</DependentUpon>
     </Compile>
     <Compile Include="trangchuct.ascx.cs">
       <DependentUpon>trangchuct.ascx</DependentUpon>
@@ -160,10 +196,7 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-    <Folder Include="UserUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="csdlbdt.dbml.layout">
       <DependentUpon>csdlbdt.dbml</DependentUpon>
