@@ -59,7 +59,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPDM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPDM[i].TEN_SANPHAM %>" src="<%= listSPDM[i].ANH %>"
+                    <img alt="<%= listSPDM[i].TEN_SANPHAM %>" src="<%="./img/products/" + listSPDM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listSPDM[i].TEN_SANPHAM %></h3>
@@ -77,7 +77,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPHot[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPHot[i].TEN_SANPHAM %>" src="<%= listSPHot[i].ANH %>" width="200" height="300" />
+                    <img alt="<%= listSPHot[i].TEN_SANPHAM %>" src="<%="./img/products/" + listSPHot[i].ANH %>" width="200" height="300" />
                 </a>
                 <h3><%= listSPHot[i].TEN_SANPHAM %></h3>
                 <p class="price"><%= listSPHot[i].GIA %></p>
@@ -93,7 +93,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%= listSPM[i].ANH %>"
+                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%="./img/products/" + listSPM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listSPM[i].TEN_SANPHAM %></h3>

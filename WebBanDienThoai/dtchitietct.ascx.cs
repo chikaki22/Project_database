@@ -10,7 +10,7 @@ namespace WebBanDienThoai
     public partial class dtchitietct : System.Web.UI.UserControl
     {
         csdlbdtDataContext db = new csdlbdtDataContext();
-        public static SanPham ifDienThoai = new SanPham();
+        public static SanPham ifDienThoai = new SanPham(); //chỉ lấy 1 sp ko dùng list
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,14 +23,14 @@ namespace WebBanDienThoai
             {
                 if (Request.QueryString["IdSanPham"] != "")
                 {
-                    long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]);
+                    long Iddienthoai = Convert.ToInt64(Request.QueryString["IdSanPham"]); //khai báo biến phụ bắt id , đổi url sang số
                     var data = from q in db.SanPhams
-                               where q.ID_SANPHAM == Iddienthoai
+                               where q.ID_SANPHAM == Iddienthoai //bắt id lại và so sánh với id đã khai báo
                                select q;
 
                     if (data != null && data.Count() > 0)
                     {
-                        ifDienThoai = data.First();
+                        ifDienThoai = data.First(); // lấy 1 sp dùng first
                     }
                 }
             }

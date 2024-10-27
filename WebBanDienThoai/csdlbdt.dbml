@@ -68,4 +68,11 @@
       <Association Name="ThuongHieu_SanPham" Member="ThuongHieu" ThisKey="ID_THUONGHIEU" OtherKey="ID_THUONGHIEU" Type="ThuongHieu" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CauHinhDN" Member="CauHinhDNs">
+    <Type Name="CauHinhDN">
+      <Column Name="ID_CAUHINH" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenBien" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

@@ -11,7 +11,6 @@ namespace WebBanDienThoai
     {
         csdlbdtDataContext db = new csdlbdtDataContext();
         public static List<SanPham> listSPDM = new List<SanPham>();
-        csdlbdtDataContext g = new csdlbdtDataContext();
         public static List<SanPham> listSPM = new List<SanPham>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,25 +23,40 @@ namespace WebBanDienThoai
 
         void LoadData()
         {
-            string strTimKiem = Request.QueryString["giatri"];
-            var data = from q in db.SanPhams
-                       where q.TEN_SANPHAM.Contains(strTimKiem)
-                       select q;
-            if (data != null && data.Count() > 0)
+            try
             {
-                listSPDM = data.ToList();
+                string strTimKiem = Request.QueryString["giatri"]; // bắt lại chuỗi đã nhập
+                var data = from q in db.SanPhams
+                           where q.TEN_SANPHAM.Contains(strTimKiem) //trong tensp có chứ chữ(contains) đã nhập (strtimkiem)
+                           select q;
+                if (data != null && data.Count() > 0)
+                {
+                    listSPDM = data.ToList();
+                }
+                lblTenDanhMuc.Text = "Kết Quả Tìm Sản Phẩm : " + strTimKiem; //thong báo + từ khóa tìm kiếm
             }
-
-            lblTenDanhMuc.Text = "Kết Quả Tìm Sản Phẩm : " + strTimKiem;
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
+            }
+            
         }
+
         void LoadDataspm()
         {
-            var data = from q in g.SanPhams
+            try
+            { 
+            var data = from q in db.SanPhams
                        where q.SanPhamMoi == 1
                        select q;
             if (data != null && data.Count() > 0)
             {
                 listSPM = data.ToList();
+            }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
     }

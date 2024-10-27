@@ -17,19 +17,26 @@ namespace WebBanDienThoai
         }
         void LoadData()
         {
+            try
+            { 
             var data = from q in db.DanhMuc1s
                        where q.HIENTHI == 1
-                       orderby q.VITRI ascending
+                       orderby q.VITRI ascending //sắp xếp theo thứ tự tăng dần
                        select q;
             if (data != null && data.Count()>0)
             {
                 listDM = data.ToList();
             }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("timkiemsp.aspx?giatri=" + txtTimKiem.Text);
+            Response.Redirect("timkiemsp.aspx?giatri=" + txtTimKiem.Text); //txtTimKiem.Text nội dung đã nhập 
         }
     }
 }

@@ -35,7 +35,7 @@ namespace WebBanDienThoai
                         lblThongBao.Text = "Bạn đang cập nhật sản phẩm : " + ifDienThoai.TEN_SANPHAM;
                         txtTenSP.Text = ifDienThoai.TEN_SANPHAM;
                         txtGia.Text = ifDienThoai.GIA;
-                        txtCauHinh.Text = ifDienThoai.CAUHINH;
+                        FCKCauHinh.Value = HttpUtility.HtmlDecode(ifDienThoai.CAUHINH);
                         txtMoTa.Text = ifDienThoai.MOTASANPHAM;
                         FCKChiTiet.Value = HttpUtility.HtmlDecode(ifDienThoai.ChiTietSanPham);
                     }
@@ -59,14 +59,15 @@ namespace WebBanDienThoai
 
                 ifcapnhat.TEN_SANPHAM = txtTenSP.Text;
                 ifcapnhat.GIA = txtGia.Text;
-                ifcapnhat.CAUHINH = txtCauHinh.Text;
                 ifcapnhat.MOTASANPHAM = txtMoTa.Text;
 
                 if(fileHinhAnh.HasFile)
                 {
                     ifcapnhat.ANH = fileHinhAnh.FileName;
-                    fileHinhAnh.SaveAs(Server + fileHinhAnh.FileName);
+                    fileHinhAnh.SaveAs(Server.MapPath("img\\products\\") + fileHinhAnh.FileName);
                 }
+
+                ifcapnhat.CAUHINH = HttpUtility.HtmlEncode(FCKCauHinh.Value);
 
                 ifcapnhat.ChiTietSanPham = HttpUtility.HtmlEncode(FCKChiTiet.Value);
 

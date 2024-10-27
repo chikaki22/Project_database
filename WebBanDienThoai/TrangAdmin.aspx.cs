@@ -14,51 +14,93 @@ namespace WebBanDienThoai
         {
             if(!IsPostBack)
                 LoadData();
+                KiemTraDN();
         }
+        void KiemTraDN()
+        {
+            
+            
+            if (Session["username"] != "" && Session["password"] != "") //kiểm tra user và mk có tồn tại ko
+            {
+                //xét username xem khớp vs csdl ko
+                var data = from q in db.CauHinhDNs
+                           where q.TenBien == "UserAdmin" && q.GiaTri == Session["username"]
+                           select q;
+                if (data != null && data.Count() > 0) // nếu nó khớp
+                {
+                    //kiểm tra mk khớp ko
+                    var datax = from x in db.CauHinhDNs
+                                where x.TenBien == "Password" && x.GiaTri == Session["password"]
+                                select x;
+                    if (datax == null && datax.Count() == 0) //sai mk
+                    {
+                        Response.Redirect("dangnhapadmin.aspx");
+                    }
+                }
+                else //sai username 
+                {
+                    Response.Redirect("dangnhapadmin.aspx");
+                }
+            }
+       
+        }
+
         void LoadData()
         {
+            try
+            { 
             var data = from q in db.SanPhams
                        select q;
-            if(data!=null)
+            if (data != null)
             {
-                girdSanPham.DataSource = data.ToList();
-                girdSanPham.DataBind();
+                girdSanPham.DataSource = data.ToList(); //lấy dữ liệu lên
+                girdSanPham.DataBind(); //đỗ dữ liệu ra
+            }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
 
         protected void girdSanPham_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-            if(((LinkButton)e.CommandSource).CommandName=="GetDelete")
+            if (((LinkButton)e.CommandSource).CommandName == "GetDelete") //kiểm tra nút nhấn là gì
             {
-                long idselect = Convert.ToInt64(girdSanPham.DataKeys[e.Item.ItemIndex].ToString());
+                long idselect = Convert.ToInt64(girdSanPham.DataKeys[e.Item.ItemIndex].ToString()); //bắt id sp khi click vào
                 var data = from q in db.SanPhams
                            where q.ID_SANPHAM == idselect
                            select q;
-                if(data != null)
+
+                if (data != null)
                 {
-                    SanPham ifdt = data.First();
-                    db.SanPhams.DeleteOnSubmit(ifdt);
-                    db.SubmitChanges();
+                    SanPham ifdt = data.First(); //lấy sp cần xóa
+                    db.SanPhams.DeleteOnSubmit(ifdt); //xóa dl trong bảng cần xóa
+                    db.SubmitChanges(); //xóa trong csdl
 
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "ThongBao", "alert('Sản Phẩm " + ifdt.TEN_SANPHAM + " đã bị xóa !')", true);
-                    //kiem tra con sp nao hay khong
-                    int remainingProductsCount = db.SanPhams.Count();
-
-                    if (remainingProductsCount == 0)
+                    // Kiểm tra số lượng sản phẩm còn lại 
+                    if (girdSanPham.CurrentPageIndex > 0 && girdSanPham.Items.Count == 1)
+                        {
+                            girdSanPham.CurrentPageIndex--; // Giảm chỉ số trang nếu cần }  
+                            LoadData(); // Tải lại dữ liệu }  
+                        }
+                    if (girdSanPham.Items.Count > 1)// nếu còn
                     {
-                        // Áp dụng logic để chuyển hướng về trang 1  
-                        girdSanPham.CurrentPageIndex = 1; // Giả sử bạn có biến CurrentPage để theo dõi trang hiện tại  
-                        LoadData(); // Load lại dữ liệu cho trang 1  
+                        LoadData();
                     }
-                    else
+                    
+                    // Xử lý cập nhật sản phẩm 
+                    if (((LinkButton)e.CommandSource).CommandName == "GetUpdate")
                     {
-                        LoadData(); // Nếu vẫn còn sản phẩm, chỉ cần load lại dữ liệu  
-                    } 
+                        string idcapnhat = girdSanPham.DataKeys[e.Item.ItemIndex].ToString();
+                        Response.Redirect("TrangCapNhatSP.aspx?IdSanPham=" + idcapnhat);
+                    }
 
                 }
             }
-            //cho trang cap nhat
-            if (((LinkButton)e.CommandSource).CommandName == "GetUpdate") 
+            // Xử lý cập nhật sản phẩm 
+            if (((LinkButton)e.CommandSource).CommandName == "GetUpdate")
             {
                 string idcapnhat = girdSanPham.DataKeys[e.Item.ItemIndex].ToString();
                 Response.Redirect("TrangCapNhatSP.aspx?IdSanPham=" + idcapnhat);
@@ -67,7 +109,7 @@ namespace WebBanDienThoai
 
         protected void girdSanPham_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
         {
-            girdSanPham.CurrentPageIndex = e.NewPageIndex;
+            girdSanPham.CurrentPageIndex = e.NewPageIndex; //e hành động đổi số trang
             LoadData();
         }
     }

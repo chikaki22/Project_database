@@ -60,8 +60,8 @@
             <% for (int i = 0; i < listSPHot.Count; i++)
                { %>
             <div class="product-item">
-                <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPHot[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPHot[i].TEN_SANPHAM %>" src="<%= listSPHot[i].ANH %>" width="200" height="300" />
+                <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPHot[i].ID_SANPHAM.ToString() %>'> <!--listSPHot[i].ID_SANPHAM.ToString() lấy id sách cần xem ct -->
+                    <img alt="<%= listSPHot[i].TEN_SANPHAM %>" src="<%="./img/products/" + listSPHot[i].ANH %>" width="200" height="300" />
                 </a>
                 <h3><%= listSPHot[i].TEN_SANPHAM %></h3>
                 <p class="price"><%= listSPHot[i].GIA %></p>
@@ -77,7 +77,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%= listSPM[i].ANH %>"
+                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%= "./img/products/" +listSPM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listSPM[i].TEN_SANPHAM %></h3>
@@ -93,7 +93,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listIPHONE[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listIPHONE[i].TEN_SANPHAM %>" src="<%= listIPHONE[i].ANH %>"
+                    <img alt="<%= listIPHONE[i].TEN_SANPHAM %>" src="<%="./img/products/" + listIPHONE[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listIPHONE[i].TEN_SANPHAM %></h3>
@@ -110,7 +110,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listOPPO[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listOPPO[i].TEN_SANPHAM %>" src="<%= listOPPO[i].ANH %>"
+                    <img alt="<%= listOPPO[i].TEN_SANPHAM %>" src="<%="./img/products/" + listOPPO[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listOPPO[i].TEN_SANPHAM %></h3>
@@ -127,7 +127,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSS[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSS[i].TEN_SANPHAM %>" src="<%= listSS[i].ANH %>"
+                    <img alt="<%= listSS[i].TEN_SANPHAM %>" src="<%="./img/products/" + listSS[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listSS[i].TEN_SANPHAM %></h3>
@@ -144,7 +144,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listRM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listRM[i].TEN_SANPHAM %>" src="<%= listRM[i].ANH %>"
+                    <img alt="<%= listRM[i].TEN_SANPHAM %>" src="<%="./img/products/" + listRM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listRM[i].TEN_SANPHAM %></h3>
@@ -161,7 +161,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listVV[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listVV[i].TEN_SANPHAM %>" src="<%= listVV[i].ANH %>"
+                    <img alt="<%= listVV[i].TEN_SANPHAM %>" src="<%="./img/products/" + listVV[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listVV[i].TEN_SANPHAM %></h3>
@@ -178,7 +178,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listXM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listXM[i].TEN_SANPHAM %>" src="<%= listXM[i].ANH %>"
+                    <img alt="<%= listXM[i].TEN_SANPHAM %>" src="<%="./img/products/" + listXM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listXM[i].TEN_SANPHAM %></h3>

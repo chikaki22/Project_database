@@ -58,8 +58,8 @@
             <% for (int i = 0; i < listSPDM.Count; i++)
                { %>
             <div class="product-item">
-                <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPDM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPDM[i].TEN_SANPHAM %>" src="<%= listSPDM[i].ANH %>" width="200" height="300" />
+                <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPDM[i].ID_SANPHAM.ToString() %>'> <!--lấy id sp cần xem -->
+                    <img alt="<%= listSPDM[i].TEN_SANPHAM %>" src="<%= "./img/products/" + listSPDM[i].ANH %>" width="200" height="300" />
                 </a>
                 <h3><%= listSPDM[i].TEN_SANPHAM %></h3>
                 <p class="price"><%= listSPDM[i].GIA %></p>
@@ -75,7 +75,7 @@
                { %>
             <div class="product-item">
                 <a href='<%="chitietdienthoai.aspx?IdSanPham="+ listSPM[i].ID_SANPHAM.ToString() %>'>
-                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%= listSPM[i].ANH %>"
+                    <img alt="<%= listSPM[i].TEN_SANPHAM %>" src="<%= "./img/products/" +listSPM[i].ANH %>"
                         width="200" height="300" />
                 </a>
                 <h3><%= listSPM[i].TEN_SANPHAM %></h3>

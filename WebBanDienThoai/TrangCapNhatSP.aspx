@@ -17,7 +17,10 @@
         <br />
         Hình Ảnh : <asp:FileUpload ID="fileHinhAnh" runat="server" />
         <br />
-        Cấu Hình : <asp:TextBox ID="txtCauHinh" runat="server"></asp:TextBox>
+        Cấu Hình :
+        <FCKeditorV2:FCKeditor ID="FCKCauHinh" runat="server" BasePath="~/fckeditor/" Height="400px" Width="800px">
+            
+        </FCKeditorV2:FCKeditor>
         <br />
         Mô Tả : <asp:TextBox ID="txtMoTa" runat="server"></asp:TextBox>
         <br />

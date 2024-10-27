@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dangnhapadmin.aspx" />
     <Content Include="danhmucsp.aspx" />
     <Content Include="danhmucspct.ascx" />
     <Content Include="dathang.aspx" />
@@ -69,12 +70,12 @@
     <Content Include="home.aspx" />
     <Content Include="chitietdienthoai.aspx" />
     <Content Include="dtchitietct.ascx" />
-    <Content Include="css\chitietsanpham.css" />
+    <Content Include="chitietsanpham.css" />
     <Content Include="timkiemsp.aspx" />
     <Content Include="timkiemspct.ascx" />
     <Content Include="TrangAdmin.aspx" />
     <Content Include="TrangCapNhatSP.aspx" />
-    <Content Include="css\trangchu.css" />
+    <Content Include="trangchu.css" />
     <Content Include="trangchuct.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -85,6 +86,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>csdlbdt.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="dangnhapadmin.aspx.cs">
+      <DependentUpon>dangnhapadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dangnhapadmin.aspx.designer.cs">
+      <DependentUpon>dangnhapadmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="danhmucsp.aspx.cs">
       <DependentUpon>danhmucsp.aspx</DependentUpon>
@@ -196,7 +204,9 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="csdlbdt.dbml.layout">
       <DependentUpon>csdlbdt.dbml</DependentUpon>

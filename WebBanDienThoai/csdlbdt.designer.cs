@@ -48,6 +48,9 @@ namespace WebBanDienThoai
     partial void InsertSanPham(SanPham instance);
     partial void UpdateSanPham(SanPham instance);
     partial void DeleteSanPham(SanPham instance);
+    partial void InsertCauHinhDN(CauHinhDN instance);
+    partial void UpdateCauHinhDN(CauHinhDN instance);
+    partial void DeleteCauHinhDN(CauHinhDN instance);
     #endregion
 		
 		public csdlbdtDataContext() : 
@@ -125,6 +128,14 @@ namespace WebBanDienThoai
 			get
 			{
 				return this.GetTable<SanPham>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CauHinhDN> CauHinhDNs
+		{
+			get
+			{
+				return this.GetTable<CauHinhDN>();
 			}
 		}
 	}
@@ -1494,6 +1505,116 @@ namespace WebBanDienThoai
 		{
 			this.SendPropertyChanging();
 			entity.SanPham = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CauHinhDN")]
+	public partial class CauHinhDN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ID_CAUHINH;
+		
+		private string _TenBien;
+		
+		private string _GiaTri;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_CAUHINHChanging(long value);
+    partial void OnID_CAUHINHChanged();
+    partial void OnTenBienChanging(string value);
+    partial void OnTenBienChanged();
+    partial void OnGiaTriChanging(string value);
+    partial void OnGiaTriChanged();
+    #endregion
+		
+		public CauHinhDN()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CAUHINH", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ID_CAUHINH
+		{
+			get
+			{
+				return this._ID_CAUHINH;
+			}
+			set
+			{
+				if ((this._ID_CAUHINH != value))
+				{
+					this.OnID_CAUHINHChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CAUHINH = value;
+					this.SendPropertyChanged("ID_CAUHINH");
+					this.OnID_CAUHINHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenBien", DbType="NVarChar(MAX)")]
+		public string TenBien
+		{
+			get
+			{
+				return this._TenBien;
+			}
+			set
+			{
+				if ((this._TenBien != value))
+				{
+					this.OnTenBienChanging(value);
+					this.SendPropertyChanging();
+					this._TenBien = value;
+					this.SendPropertyChanged("TenBien");
+					this.OnTenBienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaTri", DbType="NVarChar(MAX)")]
+		public string GiaTri
+		{
+			get
+			{
+				return this._GiaTri;
+			}
+			set
+			{
+				if ((this._GiaTri != value))
+				{
+					this.OnGiaTriChanging(value);
+					this.SendPropertyChanging();
+					this._GiaTri = value;
+					this.SendPropertyChanged("GiaTri");
+					this.OnGiaTriChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

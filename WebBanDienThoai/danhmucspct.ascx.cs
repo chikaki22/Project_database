@@ -22,43 +22,65 @@ namespace WebBanDienThoai
 
         void LoadData()
         {
-            long iddm = Convert.ToInt64(Request.QueryString["IdDanhMuc"]);
-            var data = from q in db.SanPhams
-                       where q.ID_DANHMUC == iddm
-                       select q;
-            if (data != null && data.Count() > 0)
+            try //kiem tra loi sai url
             {
-                listSPDM = data.ToList();
+                long iddm = Convert.ToInt64(Request.QueryString["IdDanhMuc"]); // gán biến phụ bắt iddanhmuc
+                var data = from q in db.SanPhams
+                           where q.ID_DANHMUC == iddm
+                           select q;
+                if (data != null && data.Count() > 0) //kiểm tra nếu đúng id thì đổ sp từ csdl lên giao diện
+                {
+                    listSPDM = data.ToList();
+                }
+                //lấy id trong bảng danhmuc
+                var dataDM = from q in db.DanhMuc1s
+                             where q.ID_DANHMUC == iddm
+                             select q;
+                if (dataDM != null) 
+                {
+                    lblTenDanhMuc.Text = dataDM.First().TEN_DANHMUC; //thông báo danh mục đã click
+                }
             }
-
-            var dataDM = from q in db.DanhMuc1s
-                         where q.ID_DANHMUC == iddm
-                         select q;
-            if(dataDM != null)
+            catch(Exception ex)
             {
-                lblTenDanhMuc.Text = dataDM.First().TEN_DANHMUC;
+                Response.Redirect("error.html");
             }
         }
 
         void LoadDataspm()
         {
-            var data = from q in db.SanPhams
-                       where q.SanPhamMoi == 1
-                       select q;
-            if (data != null && data.Count() > 0)
+            try
             {
-                listSPM = data.ToList();
+                //lấy từ bảng sp, những spm
+                var data = from q in db.SanPhams
+                           where q.SanPhamMoi == 1
+                           select q;
+                if (data != null && data.Count() > 0)// nếu đúng đổ lên giao diện
+                {
+                    listSPM = data.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
 
         void LoadDatahot()
         {
-            var data = from q in db.SanPhams
-                       where q.HOT == 1
-                       select q;
-            if (data != null && data.Count() > 0)
+            try
             {
-                listSPHot = data.ToList();
+                var data = from q in db.SanPhams
+                           where q.HOT == 1
+                           select q;
+                if (data != null && data.Count() > 0)
+                {
+                    listSPHot = data.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("error.html");
             }
         }
     }
